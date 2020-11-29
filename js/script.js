@@ -29,12 +29,8 @@ const display = document.querySelector('.display');
 })();
 
 function numFilter() {
-    console.log(mixStr);
     numArray = mixStr.split(/[÷\-×+]+/);
-    console.log(numArray);
-    console.log(opArray);
     numArray = numArray.map(item => parseFloat(item));
-    console.log(numArray);
 }
 
 const sum = (a, b) => a + b;
@@ -70,11 +66,14 @@ function calculate() {
         numFilter();
         if(opArray.length == numArray.length-1 && !isNaN(numArray[0]) && !isNaN(numArray[numArray.length-1])) {
             result = calculate();
-            console.log(result);
             display.textContent = result;
+            mixStr = '' + result;
         } else {
             display.textContent = 'ERROR';
+            mixStr = '';
         }
+        opArray = [];
+        numArray = [];
     })
 })();
 
