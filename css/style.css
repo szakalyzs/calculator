@@ -1,0 +1,84 @@
+body {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.container {
+    margin: 100px auto;
+    width: 540px;
+    background-color: rgb(240,240,240);
+    box-shadow: 0 0 10px 5px rgb(210,210,210) inset;
+    border-radius: 10px;
+    font-size: 2rem;
+}
+
+.container__top {
+    padding: 10px 10px 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top__btn {
+    flex: 19%;
+    line-height: 60px;
+    background-color: rgb(210,210,210);
+    box-shadow: 0 0 10px 5px rgb(180,180,180) inset;
+    border-radius: 5px;
+
+    text-align: center;
+    margin: 10px;
+}
+
+.display {
+    flex:100%;
+    background-color: rgb(255,255,255);
+    line-height: 80px;
+    text-align: left;
+    padding-left: 20px;
+    box-shadow: 0 0 0 0;
+}
+
+.container__bottom {
+    display: flex;
+}
+
+.bottom__left {
+    flex: 75%;
+    line-height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 0 10px 10px;
+}
+.bottom__right {
+    flex: 25%;
+    line-height: 100px;
+    padding: 0 10px 10px 0;
+}
+
+.left__btn {
+    flex: 20%;
+    line-height: 60px;
+    background-color: rgb(230,230,230);
+    box-shadow: 0 0 10px 5px rgb(200,200,200) inset;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.right__btn {
+    flex: 100%;
+    line-height: 320px;
+    background-color: rgb(100,160,255);
+    box-shadow: 0 0 10px 5px rgb(90,140,235) inset;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px;
+    color: rgb(255,255,255);
+    cursor: pointer;
+    user-select: none;
+}
