@@ -2,6 +2,8 @@
 
 let opArray = [];
 let mixStr = '';
+let numArray = [];
+let result = 0;
 const display = document.querySelector('.display');
 
 
@@ -12,7 +14,6 @@ const display = document.querySelector('.display');
             opArray.push(operators[i].textContent);
             mixStr += operators[i].textContent;
             display.textContent += operators[i].textContent;
-            console.log(opArray);
         })
     }
 })();
@@ -23,15 +24,57 @@ const display = document.querySelector('.display');
         numbers[i].addEventListener('click', () => {
             mixStr += numbers[i].textContent;
             display.textContent += numbers[i].textContent;
-            console.log(mixStr);
         })
     }
 })();
+
+function numFilter() {
+    console.log(mixStr);
+    numArray = mixStr.split(/[÷\-×+]+/);
+    console.log(numArray);
+    console.log(opArray);
+    numArray = numArray.map(item => parseFloat(item));
+    console.log(numArray);
+}
+
+const sum = (a, b) => a + b;
+const sub = (a, b) => a - b;
+const mult = (a, b) => a * b;
+const div = (a, b) => a / b;
+
+
+function calculate() {
+
+    let temp = numArray[0];
+    for (let i = 1; i < numArray.length; i++) {
+        if (opArray[i-1] == '+') {
+            temp = sum(temp, numArray[i]);
+        }
+        if (opArray[i-1] == '-') {
+            temp = sub(temp, numArray[i]);
+        }
+        if (opArray[i-1] == '×') {
+            temp = mult(temp, numArray[i]);
+        }
+        if (opArray[i-1] == '÷') {
+            temp = div(temp, numArray[i]);
+        }
+    }
+    return temp;
+}
 
 (function rightBtnHandler() {
     const equal = document.querySelector('.right__btn');
     equal.addEventListener('click', () => {
         display.textContent += equal.textContent;
+        numFilter();
+        if(opArray.length == numArray.length-1 && !isNaN(numArray[0]) && !isNaN(numArray[numArray.length-1])) {
+            result = calculate();
+            console.log(result);
+            display.textContent = result;
+        } else {
+            display.textContent = 'ERROR';
+        }
     })
 })();
 
@@ -41,5 +84,7 @@ const display = document.querySelector('.display');
         display.textContent = '\xa0';
         opArray = [];
         mixStr = '';
+        numArray = [];
     })
 })();
+
